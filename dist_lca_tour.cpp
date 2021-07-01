@@ -59,7 +59,7 @@ struct lca_tree{
         a=m[a], b=m[b];
         if(a>b)swap(a,b);
         pii ans = query(a,b);
-        return ans.ff;
+        return ans.ff+1;
     }
 
     int get_dist(int a, int b){
