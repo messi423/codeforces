@@ -9,6 +9,11 @@ struct seg_tree{
         lazy.assign(2*n1, 0ll);
     }
 
+    void build(vector<ll>&a1){
+        f(i,0,a1.size())a[i+n]=a1[i];
+        for(int i=n-1; i; i--)a[i]=a[2*i]+a[2*i+1];
+    }
+
 
     void update(int k, int l, int r, ll val, int tl, int tr){
         if(min(r,tr)<max(l,tl))return;
