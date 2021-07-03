@@ -32,16 +32,16 @@ struct dijkstra {
       ptype foc = pq.top();
       pq.pop();
 
-	    if (vis[foc.s]) continue;
-	    vis[foc.s] = 1;
+	    if (vis[foc.ss]) continue;
+	    vis[foc.ss] = 1;
 
-      dists[foc.s] = min(dists[foc.s], foc.f);
-      for (ptype x: edges[foc.s]) {
-        ll d = dists[foc.s] + x.f;
-        if (d < dists[x.s]) {
-          dists[x.s] = d;
-          par[x.s] = foc.s;
-          pq.push(make_pair(d, x.s));
+      dists[foc.ss] = min(dists[foc.ss], foc.ff);
+      for (ptype x: edges[foc.ss]) {
+        ll d = dists[foc.ss] + x.ff;
+        if (d < dists[x.ss]) {
+          dists[x.ss] = d;
+          par[x.ss] = foc.ss;
+          pq.push(make_pair(d, x.ss));
         }
       }
     }
