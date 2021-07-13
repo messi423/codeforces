@@ -37,7 +37,7 @@ struct lca_tree{
         for(int i=0;i<sz;i++)dp[i][0]=a[i];
 
         for(int j=1; j<=log2(sz); j++){
-            for(int i=0; i+(1<<j)-1<n; i++){
+            for(int i=0; i+(1<<j)-1<sz; i++){
                 if(dp[i][j-1].ss < dp[i+(1<<(j-1))][j-1].ss){
                     dp[i][j]=dp[i][j-1];
                 }
@@ -55,11 +55,11 @@ struct lca_tree{
     }
 
     int lca(int a, int b){
-        cout << m[a] << " " << m[b] << "\n";
+        //cout << m[a] << " " << m[b] << "\n";
         a=m[a], b=m[b];
         if(a>b)swap(a,b);
         pii ans = query(a,b);
-        return ans.ff+1;
+        return ans.ff;
     }
 
     int get_dist(int a, int b){
